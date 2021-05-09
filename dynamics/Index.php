@@ -8,15 +8,32 @@ if($sessionIn)
         <html>
             <head>
                 <meta charset='UTF-8'>
-                <title>Biblioteca </title>
+                <title>Coyo Lectores</title>
             </head>
             <body>
-                <h1>¡Bienvenid@ a la biblioteca '' de la prepa 6!</h1>
-                <form action='./accountCreation.php' method='POST'>
-                    <label for='sessionInit'>
-                        <button type='submit' value='sessionInit'>Cerrar sesión</button>
-                    </label>
-                </form>
+                <table>
+                    <tr>
+                        <td><img src='../statics/EscudoEnp6.jpg' alt='LogoP6' height='100'></td>
+                        <td><h1>Coyo Lectores ENP 6</h1></td>
+                    </tr>
+                </table>
+                <table align='right'>
+                    <tr>
+                        <td>
+                            <form action='./accountCreation.php' method='POST'>
+                                <label for='sessionInit'>
+                                    <button type='submit' value='sessionClose'>Cerrar sesión</button>
+                                </label>
+                            </form>
+                        </td>
+                    </tr>
+                </table>
+                <hr>
+                libros
+                <hr>
+                <p>Equipo de desarrollo: ''</p>
+                <p>Integrantes: </p>
+                <br>
             </body>
         </html>";
 }
