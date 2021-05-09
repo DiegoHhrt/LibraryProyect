@@ -66,7 +66,7 @@ echo "
                     </label>
                     <br><br>
                     <label for='mail'>
-                        Correo institucional: <input type='email' name='mail' placeholder='correo@comunidad.unam.mx'>
+                        Correo institucional: <input type='email' name='mail' placeholder='correo@comunidad.unam.mx' required>
                     </label>
                     <br><br>
                     <label for='birth'>
