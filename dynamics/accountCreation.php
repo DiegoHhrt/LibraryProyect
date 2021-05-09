@@ -1,5 +1,8 @@
 <?php
 
+//ssion_name("register");
+//session_start();
+
 $accTipe=(isset ($_POST["tipo"]) && $_POST["tipo"] !="") ?$_POST["tipo"]: false;
 echo "
 <!DOCTYPE html>
@@ -91,7 +94,9 @@ echo "
                         }
                     echo "</label>
                     <br><br>
-                    <button type='submit' value='register'>Registrarse</button>
+                    <label for='registred'>
+                        <button type='submit' value='register' name='registred'>Registrarse</button>
+                    </label>
                     <button type='reset'>Limpiar la información de los campos</button>
                 </fieldset>
             </form>";     
