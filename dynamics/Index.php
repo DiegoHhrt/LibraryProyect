@@ -72,7 +72,16 @@ elseif($sessionIn||(isset($_SESSION["init"])))
                         </tr>
                     </table>
                     <hr>
-                    libros
+                    <a href='./contentRequest.php'>Solicitar nuevo contenido</a>";
+                    if($_SESSION["tipoUsuario"]==="bibl"||$_SESSION["tipoUsuario"]==="admon")
+                    {
+                        <table>    
+                        echo "<a href='./reports.php'>Reportes de contenido</a>";
+                        echo "<a href='./addOrDelete.php'>Manejo de usuarios</a>";
+                        </table>
+                    }
+                    echo "<br>libros
+                    <br>
                     <hr>
                     <p>Equipo de desarrollo: ''</p>
                     <p>Integrantes: </p>

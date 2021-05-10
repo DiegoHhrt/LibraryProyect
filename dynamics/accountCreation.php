@@ -66,11 +66,7 @@ else{
                             {
                                 echo "Número de cuenta/RFC: <input type='text' name='identification' minlength='9' maxlength='14' required>";
                             }
-                            elseif($accTipe=="bibliotec")
-                            {
-                                echo "RFC: <input type='text' name='identification' minlength='12' maxlength='14' required>";
-                            }
-                            elseif($accTipe=="admin")
+                            elseif($accTipe=="admin"||$accTipe=="bibliotec")
                             {
                                 echo "RFC: <input type='text' name='identification' minlength='12' maxlength='14' required>";
                             }
