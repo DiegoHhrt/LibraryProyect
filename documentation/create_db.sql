@@ -46,3 +46,10 @@ CREATE TABLE Usuario (
     Correo VARCHAR(255) NOT NULL UNIQUE,
     Psswd VARCHAR(255) NOT NULL
 );
+CREATE TABLE Favorito(
+    Id_Uhl INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    Id_libro BIGINT UNSIGNED,
+	Id_Usuario VARCHAR(14),
+	FOREIGN KEY (Id_libro) REFERENCES Libro(Isbn),
+	FOREIGN KEY (Id_Usuario) REFERENCES Usuario(Id_usuario)
+);
