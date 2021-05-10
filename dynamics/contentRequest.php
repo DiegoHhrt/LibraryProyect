@@ -8,7 +8,7 @@
         <form action='./Index.php'>
             <fieldset>
                 <legend>Solicitud de integración de nuevo material</legend>
-                    <p>Solicitante: </p>
+                    <p>Solicitante: &#128100</p>
                     <label for='name'>
                         Nombre: <input type='text' name='name' placeholder='Nombre(s)'>
                     </label>
@@ -25,7 +25,7 @@
                         Correo institucional: <input type='email' name='mail' placeholder='correo@comunidad.unam.mx'>
                     </label>
                     <br><br>
-                    <p>Material que solicita: </p>
+                    <p>Material que solicita: &#128218</p>
                     <label for='bookName'>
                         Título del libro: <input type='text' name='bookName' placeholder='Título' required>
                     </label>
