@@ -53,3 +53,11 @@ CREATE TABLE Favorito(
 	FOREIGN KEY (Id_libro) REFERENCES Libro(Isbn),
 	FOREIGN KEY (Id_Usuario) REFERENCES Usuario(Id_usuario)
 );
+CREATE TABLE Reporte(
+	Id_Reporte INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	Id_libro BIGINT UNSIGNED,
+	Id_Usuario VARCHAR(14),
+	Motivo TEXT NOT NULL,
+	FOREIGN KEY (Id_libro) REFERENCES Libro(Isbn),
+	FOREIGN KEY (Id_Usuario) REFERENCES Usuario(Id_usuario)
+);
