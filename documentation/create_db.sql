@@ -1,0 +1,48 @@
+CREATE DATABASE Biblioteca CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE Biblioteca;
+
+CREATE TABLE Genero (
+	Id_genero INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	Nombre VARCHAR(20) UNIQUE NOT NULL
+);
+
+CREATE TABLE Autor (
+	Id_autor INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	Nombre VARCHAR(50) UNIQUE NOT NULL
+);
+
+CREATE TABLE Editorial (
+	Id_editorial INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	Nombre VARCHAR(40) UNIQUE NOT NULL
+);
+
+CREATE TABLE Libro (
+	Isbn BIGINT UNSIGNED PRIMARY KEY,
+	Id_autor INT UNSIGNED,
+	Id_editorial INT UNSIGNED,
+	Titulo VARCHAR(100) NOT NULL,
+	Img_referencia VARCHAR(255) NOT NULL,
+	Year YEAR NOT NULL,
+	Descripcion TEXT NOT NULL,
+	Edicion INT NOT NULL,
+	UbicacionArchivo VARCHAR(255) NOT NULL,
+	FOREIGN KEY (Id_autor) REFERENCES Autor(Id_autor),
+	FOREIGN KEY (Id_editorial) REFERENCES Editorial(Id_editorial)
+);
+
+CREATE TABLE LibroHasGenero (
+	Id_lhg INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	Id_libro BIGINT UNSIGNED,
+	Id_genero INT UNSIGNED,
+	FOREIGN KEY (Id_libro) REFERENCES Libro(Isbn),
+	FOREIGN KEY (Id_genero) REFERENCES Genero(Id_genero)
+);
+
+CREATE TABLE Usuario (
+    Id_usuario VARCHAR(14) PRIMARY KEY,
+    Tipo ENUM('Lector', 'Bibliotecario', 'Admin') NOT NULL,
+    Nombre VARCHAR(50) NOT NULL ,
+    Nacimiento DATE NOT NULL,
+    Correo VARCHAR(255) NOT NULL UNIQUE,
+    Psswd VARCHAR(255) NOT NULL
+);
