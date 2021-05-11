@@ -5,8 +5,12 @@
     </head>
   
 </body>
-<h1><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Escudo_prepa_6_enp_6.jpg/240px-Escudo_prepa_6_enp_6.jpg" alt="P6" width="80" height="80">Coyo Lectores</h1>
-<hr><br>
+<table>
+    <tr>
+        <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Escudo_prepa_6_enp_6.jpg/240px-Escudo_prepa_6_enp_6.jpg" alt="P6" width="80" height="80"></td>
+        <td> <h1>Coyo Lectores</h1></td>
+    </tr>
+</table><hr>
 <h2>Datos del libro</h2>
 <table border="1">
   <thead>
