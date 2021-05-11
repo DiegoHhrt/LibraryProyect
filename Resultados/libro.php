@@ -14,18 +14,18 @@
 <h2>Datos del libro</h2>
 <table border="1">
   <thead>
-  <th colspan="2"><strong>Datos</strong></th>
+  <th colspan="2"><h3>Datos</strong></h3>
   </thead>
   <tbody>
     <tr>
       <td rowspan="3"><img src="https://imagessl4.casadellibro.com/a/l/t7/94/9788478887194.jpg" width="400" height="600" alt="Imagen de prueba"></td>
-      <td>Titulo: Aquí debe de ir el titulo xd</td>
+      <td><strong>Titulo:</strong> El principito</td>
     </tr>
     <tr>
-      <td>ID del libro: Aquí va todo xd</td>
+      <td><strong>ID del libro:</strong> Salamandra</td>
     </tr>
     <tr>
-      <td>¿Datos extra?</td>
+      <td><strong>Datos extra:</strong> Lo que sea</td>
     </tr>
   </tbody>
 </table>
