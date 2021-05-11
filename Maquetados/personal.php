@@ -4,7 +4,9 @@
         <meta charset='UTF-8'>
         <title>Información personal </title>
     </head>
-        <h1>Información personal</h1>
+        <h1><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Escudo_prepa_6_enp_6.jpg/240px-Escudo_prepa_6_enp_6.jpg" alt="P6" width="80" height="80">Coyo Lectores</h1>
+        <hr><br>
+        <h2>Información personal</h2>
         <fieldset>
             <legend><h3>Datos personales</h3></legend>
             <?php
