@@ -3,10 +3,11 @@
     <head>
         <title>Resultados de busqueda</title>
     </head>
-</html>
   
 </body>
-<h1>Datos del libro</h1>
+<h1><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Escudo_prepa_6_enp_6.jpg/240px-Escudo_prepa_6_enp_6.jpg" alt="P6" width="80" height="80">Coyo Lectores</h1>
+<hr><br>
+<h2>Datos del libro</h2>
 <table border="1">
   <thead>
   <th colspan="2"><strong>Datos</strong></th>
@@ -24,3 +25,9 @@
     </tr>
   </tbody>
 </table>
+<form action="">
+  <label for=""><br><br>
+    <input type="submit" value="Regresar">
+  </label>
+  </form>
+  </html>
