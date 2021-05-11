@@ -75,10 +75,10 @@ elseif($sessionIn||(isset($_SESSION["init"])))
                     <a href='./contentRequest.php'>Solicitar nuevo contenido</a>";
                     if($_SESSION["tipoUsuario"]==="bibl"||$_SESSION["tipoUsuario"]==="admon")
                     {
-                        <table>    
+                        //<table>    
                         echo "<a href='./reports.php'>Reportes de contenido</a>";
                         echo "<a href='./addOrDelete.php'>Manejo de usuarios</a>";
-                        </table>
+                       // </table>
                     }
                     echo "<br>libros
                     <br>
