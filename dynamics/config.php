@@ -1,4 +1,5 @@
 <?php
+    require_once("./inSessionValidation.php");
     define("USER", "root");
     define("HOST", "localhost");
     define("PASSWORD", "");

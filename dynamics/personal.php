@@ -1,16 +1,24 @@
+<?php
+    require_once("./inSessionValidation.php");
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset='UTF-8'>
         <title>Información personal </title>
     </head>
-    <table>
-    <tr>
-        <td><img src="../statics/EscudoEnp6.jpg" alt="P6" height="100"></td>
-        <td> <h1>Coyo Lectores</h1></td>
-    </tr>
-    </table>
+    <body>
+        <table>
+            <tr>
+                <td><img src="../statics/EscudoEnp6.jpg" alt="P6" height="100"></td>
+                <td> <h1>Coyo Lectores</h1></td>
+            </tr>
+        </table>
         <hr><br>
+        <form action="./Index.php">
+            <button type="submit">Regresar</button>
+        </form>
         <h2>Información personal</h2>
         <fieldset>
             <legend><h3>Datos personales</h3></legend>
@@ -56,8 +64,8 @@
             </label>
             </form>
         </fieldset>
-
+        
  
-    <body>
-        </html>
+    </body>
+</html>
 

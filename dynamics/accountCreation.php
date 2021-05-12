@@ -1,4 +1,5 @@
 <?php
+require_once("./inSessionValidation.php");
 //Antes de crear una cuenta, te permite seleccionar qué tipo de usuario es el que requieres.
 function permitsSelection()
 {
@@ -16,17 +17,14 @@ function permitsSelection()
                     <button type='submit' name='tipo' value='admin'>Administrador</button>
                 </label>
             </fieldset>
-        </form>";
+        </form>
+        ¿Ya tienes una cuenta? <a href='iniSesion.php'> Inicia sesión aquí</a>";
 }
 
 session_name("register");
 session_start();
 
-if((isset($_SESSION["init"])))
-{
-    header("location: ./Index.php");
-}
-else{
+validateNotSession();
     $accTipe=(isset ($_POST["tipo"]) && $_POST["tipo"] !="") ?$_POST["tipo"]: false;
     echo "
     <!DOCTYPE html>
@@ -35,7 +33,13 @@ else{
                 <meta charset='UTF-8'>
                 <title>Creación de cuenta</title>
             </head>
-            <body>";
+            <body>
+            <table>
+            <tr>
+                <td><img src='../statics/EscudoEnp6.jpg' alt='P6' height='100'></td>
+                <td> <h1>Coyo Lectores</h1></td>
+            </tr>
+            </table> <hr>";
             //Si no se ha seleccionado un tipo de usuario, debes elegir uno
             if($accTipe===false)
             {
@@ -112,5 +116,5 @@ else{
             echo"
             </body>
         </html>";
-}
+
 ?>

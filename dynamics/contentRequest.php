@@ -1,3 +1,6 @@
+<?php
+    require_once("./inSessionValidation.php");
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -5,6 +8,15 @@
         <title>Solicitud de contenido</title>
     </head>
     <body>
+        <table>
+            <tr>
+                <td><img src="../statics/EscudoEnp6.jpg" alt="P6" height="100"></td>
+                <td> <h1>Coyo Lectores</h1></td>
+            </tr>
+        </table> <hr>
+        <form action="./Index.php">
+            <button type="submit">Regresar</button>
+        </form>
         <form action='./Index.php'>
             <fieldset>
                 <legend>Solicitud de integración de nuevo material</legend>

@@ -1,4 +1,5 @@
 <?php
+    require_once("./inSessionValidation.php");
     //Se asigna a todas las variables de sesión un valor proviniente del formulario
     function assignData ()
     {
@@ -32,7 +33,7 @@ if(isset($_POST["closeS"]))
 {
     session_unset();
     session_destroy();
-    header("location: ./accountCreation.php");
+    header("location: ./iniSesion.php");
 }
 //Si existe una sesión activa o se ha creado una cuenta, despliega el contenido de la página
 elseif($sessionIn||(isset($_SESSION["init"])))
@@ -98,6 +99,6 @@ elseif($sessionIn||(isset($_SESSION["init"])))
 //Si se trata de acceder a la vista principal sin una sesión activa o sin haber creado una sesión antes, te redirige al inicio de sesión
 else
 {
-    header("location: ./accountCreation.php");
+    header("location: ./iniSesion.php");
 }
 ?>

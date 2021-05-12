@@ -1,6 +1,7 @@
 <?php
+    require_once("./inSessionValidation.php");
+    session_name("register")
     session_start();
-    //En la validación poner como if(isset($_SESSION["(nombre de sesion)"]) y se muestra todo lo de abajo, en otro caso header("location: ./index.php"))
 ?>
 <DOCTYPE html>
 <html>
@@ -9,6 +10,15 @@
         <title>Reporte de libros</title>
     </head>
     <body>
+        <table>
+            <tr>
+                <td><img src="../statics/EscudoEnp6.jpg" alt="P6" height="100"></td>
+                <td> <h1>Coyo Lectores</h1></td>
+            </tr>
+        </table> <hr>
+        <form action="./Index.php">
+            <button type="submit">Regresar</button>
+        </form>
         <form>
             <fieldset style="width:500px">
                 <legend><h2>Reporte de libro</h2></legend>

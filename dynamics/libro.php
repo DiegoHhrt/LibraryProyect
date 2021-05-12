@@ -1,16 +1,23 @@
+<?php
+  require_once("./inSessionValidation.php");
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
         <title>Resultados de busqueda</title>
     </head>
   
-</body>
+<body>
 <table>
     <tr>
         <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Escudo_prepa_6_enp_6.jpg/240px-Escudo_prepa_6_enp_6.jpg" alt="P6" width="80" height="80"></td>
         <td> <h1>Coyo Lectores</h1></td>
     </tr>
 </table><hr>
+<form action="./Index.php">
+        <button type="submit">Regresar</button>
+    </form>
 <h2>Datos del libro</h2>
 <table border="1">
   <thead>
@@ -34,4 +41,5 @@
     <input type="submit" value="Regresar">
   </label>
   </form>
-  </html>
+</body>
+</html>
