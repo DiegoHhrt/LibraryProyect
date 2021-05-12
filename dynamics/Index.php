@@ -75,16 +75,17 @@ elseif($sessionIn||(isset($_SESSION["init"])))
                         </tr>
                     </table>
                     <hr>
-                    <a href='./contentRequest.php'>Solicitar nuevo contenido </a> |
-                    <a href='./personal.php'> Ver información personal </a> |
-                    <a href='./reporte.php'> Reportar contenido inadecuado </a> |"; 
+                    <a href='./contentRequest.php'>&#128236 Solicitar nuevo contenido </a> <strong>|</strong>
+                    <a href='./personal.php'>&#128196 Ver información personal </a> <strong>|</strong>
+                    <a href='./reporte.php'>&#128681 Reportar contenido inadecuado </a> <strong>|</strong>"; 
                     if($_SESSION["tipoUsuario"]==="bibl"||$_SESSION["tipoUsuario"]==="admon")
                     {    
-                        echo "<a href='./reports.php'> Reportes de contenido </a> |";  
+                        echo "<a href='./reports.php'>&#10071 Reportes de contenido </a> <strong>|</strong>";
+                        echo "<a href='./form_de_nuevo_contenido.php'>&#9989 Agregar nuevo contenido </a> <strong>|</strong>";  
                     }
                     if($_SESSION["tipoUsuario"]==="admon")
                     {
-                        echo "<a href='./addOrDelete.php'> Manejo de usuarios </a> |";
+                        echo "<a href='./addOrDelete.php'>&#128101 Manejo de usuarios </a> <strong>|</strong>";
                     }
                     echo "<hr>";
                     echo "<br>libros
