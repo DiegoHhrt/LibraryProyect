@@ -116,7 +116,7 @@ elseif($sessionIn||(isset($_SESSION["init"])))
                     </table>
                     <br>
                     <hr>
-                    <p>Equipo de desarrollo: ''</p>
+                    <p>Equipo de desarrollo: 'Kiki's Library'</p>
                     <p>Integrantes: </p>
                     <br>
                 </body>
