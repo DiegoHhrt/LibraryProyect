@@ -1,6 +1,7 @@
 <?php
     require_once('./inSessionValidation.php');
     validateSession();
+    validatePermissions('Admin');
 
 echo "
 <!DOCTYPE html>

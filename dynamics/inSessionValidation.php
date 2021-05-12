@@ -19,6 +19,27 @@
         }
         return true;
     }
-
+    //Función que no te permite acceder a ciertas vistas si no tienes el permiso adecuado
+    function validatePermissions($permit)
+    {
+        if($permit!='all')
+        {
+            if($permit=='biblio')
+            {
+                if($_SESSION["tipoUsuario"]=='lec')
+                {
+                    header("location: ./Index.php");
+                }
+            }
+            elseif($permit=='Admin')
+            {
+                if($_SESSION["tipoUsuario"]=='lec'||$_SESSION["tipoUsuario"]=='bibl')
+                {
+                    header("location: ./Index.php");
+                }
+            }
+        }
+        
+    }     
 
 ?>

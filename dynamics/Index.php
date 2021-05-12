@@ -81,7 +81,8 @@ elseif($sessionIn||(isset($_SESSION["init"])))
                     if($_SESSION["tipoUsuario"]==="bibl"||$_SESSION["tipoUsuario"]==="admon")
                     {    
                         echo "<a href='./reports.php'>&#10071 Reportes de contenido </a> <strong>|</strong>";
-                        echo "<a href='./form_de_nuevo_contenido.php'>&#9989 Agregar nuevo contenido </a> <strong>|</strong>";  
+                        echo "<a href='./form_de_nuevo_contenido.php'>&#9989 Agregar nuevo contenido </a> <strong>|</strong>";
+                        echo "<a href='./form_de_nuevo_contenido.php'>&#128337 Historial de descargas </a> <strong>|</strong>";  
                     }
                     if($_SESSION["tipoUsuario"]==="admon")
                     {
