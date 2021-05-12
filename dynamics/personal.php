@@ -1,5 +1,6 @@
 <?php
     require_once("./inSessionValidation.php");
+    validateSession();
 ?>
 
 <!DOCTYPE html>

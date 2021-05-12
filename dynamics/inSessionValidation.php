@@ -1,5 +1,7 @@
 <?php
     //Función que en caso de no tener una sesión activa, no te deja acceder a las vistas
+    session_name("register");
+    session_start();
     function validateSession()
     {
         if(!(isset($_SESSION["init"])))

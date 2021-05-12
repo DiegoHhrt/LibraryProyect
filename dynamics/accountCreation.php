@@ -21,9 +21,6 @@ function permitsSelection()
         ¿Ya tienes una cuenta? <a href='iniSesion.php'> Inicia sesión aquí</a>";
 }
 
-session_name("register");
-session_start();
-
 validateNotSession();
     $accTipe=(isset ($_POST["tipo"]) && $_POST["tipo"] !="") ?$_POST["tipo"]: false;
     echo "

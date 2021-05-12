@@ -23,9 +23,6 @@
         $_SESSION['favs']=$fav;
         $_SESSION['tipoUsuario']=$permit;
     }
-
-    session_name("register");
-    session_start();
     
     $sessionIn=(isset ($_POST["registred"]) && $_POST["registred"] !="") ?$_POST["registred"]: false;
 //En caso de haber cerrado sesión, redirige a la creación de una cuenta
@@ -64,6 +61,11 @@ elseif($sessionIn||(isset($_SESSION["init"])))
                     <table align='right'>
                         <tr>
                             <td>
+                                <form action='busqueda.php'>
+                                    <button type='submit'>Busqueda de libros</button>
+                                </form>
+                            </td>
+                            <td>
                                 <form action='./Index.php' method='POST'>
                                     <label for='closeS'>
                                         <button type='submit' name='closeS' value='sessionClose'>Cerrar sesión</button>
@@ -73,18 +75,15 @@ elseif($sessionIn||(isset($_SESSION["init"])))
                         </tr>
                     </table>
                     <hr>
-                    <a href='./contentRequest.php'>Solicitar nuevo contenido </a>
-                    <a href='./personal.php'> Ver información personal </a>";
+                    <a href='./contentRequest.php'>Solicitar nuevo contenido </a> |
+                    <a href='./personal.php'> Ver información personal </a> |"; 
                     if($_SESSION["tipoUsuario"]==="bibl"||$_SESSION["tipoUsuario"]==="admon")
                     {
                         //<table>    
-                        echo "<a href='./reports.php'> Reportes de contenido </a>";
-                        echo "<a href='./addOrDelete.php'> Manejo de usuarios </a>";
+                        echo "<a href='./reports.php'> Reportes de contenido </a> |";
+                        echo "<a href='./addOrDelete.php'> Manejo de usuarios </a> |";
                        // </table>
                     }
-                    echo "<form action='busqueda.php'>";
-                        echo"<input type='search' name=''>";
-                    echo "</form>";
                     echo "<br>libros
                     <br>
                     <hr>

@@ -1,7 +1,6 @@
 <?php
     require_once("./inSessionValidation.php");
-    session_name("register")
-    session_start();
+    validateSession();
 ?>
 <DOCTYPE html>
 <html>
