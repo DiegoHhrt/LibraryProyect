@@ -1,7 +1,7 @@
 <?php
     require_once("./inSessionValidation.php");
     //Se asigna a todas las variables de sesión un valor proviniente del formulario
-    function assignData ()
+    function assignData()
     {
         $name=(isset($_POST["name"]) && $_POST["name"] != "")? $_POST["name"]:"Inválido";
         $apellP=(isset($_POST["apellidoPat"]) && $_POST["apellidoPat"] != "")? $_POST["apellidoPat"]:"Inválido";
