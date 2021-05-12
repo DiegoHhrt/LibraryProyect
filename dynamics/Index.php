@@ -76,10 +76,13 @@ elseif($sessionIn||(isset($_SESSION["init"])))
                     if($_SESSION["tipoUsuario"]==="bibl"||$_SESSION["tipoUsuario"]==="admon")
                     {
                         //<table>    
-                        echo "<a href='./reports.php'>Reportes de contenido</a>";
-                        echo "<a href='./addOrDelete.php'>Manejo de usuarios</a>";
+                        echo "<a href='./reports.php'> Reportes de contenido </a>";
+                        echo "<a href='./addOrDelete.php'> Manejo de usuarios </a>";
                        // </table>
                     }
+                    echo "<form action='busqueda.php'>";
+                        echo"<input type="search" name="">"
+                    echo "</form>";
                     echo "<br>libros
                     <br>
                     <hr>
