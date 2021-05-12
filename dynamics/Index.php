@@ -72,7 +72,8 @@ elseif($sessionIn||(isset($_SESSION["init"])))
                         </tr>
                     </table>
                     <hr>
-                    <a href='./contentRequest.php'>Solicitar nuevo contenido</a>";
+                    <a href='./contentRequest.php'>Solicitar nuevo contenido </a>
+                    <a href='./personal.php'> Ver información personal </a>";
                     if($_SESSION["tipoUsuario"]==="bibl"||$_SESSION["tipoUsuario"]==="admon")
                     {
                         //<table>    
@@ -81,7 +82,7 @@ elseif($sessionIn||(isset($_SESSION["init"])))
                        // </table>
                     }
                     echo "<form action='busqueda.php'>";
-                        echo"<input type="search" name="">"
+                        echo"<input type='search' name=''>";
                     echo "</form>";
                     echo "<br>libros
                     <br>
