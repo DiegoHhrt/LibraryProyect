@@ -24,8 +24,6 @@
         <fieldset>
             <legend><h3>Datos personales</h3></legend>
             <?php
-            session_name("register");
-            session_start();
 
             if($_SESSION["tipoUsuario"]=='lec')
             {

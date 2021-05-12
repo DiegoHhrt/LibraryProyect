@@ -22,13 +22,13 @@
         <h2>Historial de reportes de contenido inadecuado.</h2>
         <hr>";
 
-            $x=0;
-            while($x<10)
-            {
-                $y=$x+1;
-                echo '<a href=''>Reporte'.$y.'</a><br><br>';
-                $x++;
-            } 
+            // $x=0;
+            // while($x<10)
+            // {
+            //     $y=$x+1;
+            //     echo '<a href=''>Reporte'.$y.'</a><br><br>';
+            //     $x++;
+            // } 
         echo"                        
         <hr>
     </body>
