@@ -1,5 +1,59 @@
 <?php
     require_once("./inSessionValidation.php");
+    require_once("./config.php");
+    //registra la info del nuevo usuario en la base de datos
+    $rowcount=0;
+    $rowcount2=0;
+    function dbRegister()
+    {
+        $con=databaseConection();
+        $checkExistsId="SELECT Id_usuario FROM Usuario WHERE Id_usuario=".$_SESSION["identificacion"]."";    
+        $checkExistsMail="SELECT Correo FROM Usuario WHERE Correo='".$_SESSION['email']."'";
+        
+        if ($r=mysqli_query($con,$checkExistsId))
+        {
+            $rowcount=mysqli_num_rows($r);
+        }
+        if ($r2=mysqli_query($con,$checkExistsMail))
+        {
+            $rowcount2=mysqli_num_rows($r2);
+        }
+        if($rowcount>0||$rowcount2>0)
+        {
+            header("location: ./gotAccount.php");
+            destroySession();
+        }
+        else
+        {
+
+            if($_SESSION["tipoUsuario"]=="lec")
+            {
+                $tUser="Lector";
+            }
+            elseif($_SESSION["tipoUsuario"]=="bibl")
+            {
+                $tUser="Bibliotecario";
+            }
+            elseif($_SESSION["tipoUsuario"]=="admon")
+            {
+                $tUser="Admin";
+            }
+            $insertUser="INSERT INTO Usuario (Id_Usuario, Tipo, Nombre, Nacimiento, Correo, Psswd) VALUES ('".$_SESSION['identificacion']."', '".$tUser."', '".$_SESSION['nombre']." ".$_SESSION['apellido']."','".$_SESSION['cumple']."','".$_SESSION['email']."','".$_SESSION['psswd']."')";
+            
+            $state=mysqli_query($con, $insertUser);
+            if($state)
+            {
+                header("location: ./Index.php");
+            }
+            else
+            {
+                echo "<h1>Tu registro ha fallado por alguna razón, por favor verfica que tu información sea correcta</h1>";
+                echo "<a href='./accountCreation.php'>Regresar a creación de cuenta</a>";  
+            }
+        }
+        
+        exit();
+    }
     //Se asigna a todas las variables de sesión un valor proviniente del formulario
     function assignData()
     {
@@ -24,14 +78,15 @@
         $_SESSION['psswd']=$pw;
         $_SESSION['favs']=$fav;
         $_SESSION['tipoUsuario']=$permit;
+
+        dbRegister();
     }
     
     $sessionIn=(isset ($_POST["registred"]) && $_POST["registred"] !="") ?$_POST["registred"]: false;
 //En caso de haber cerrado sesión, redirige a la creación de una cuenta
 if(isset($_POST["closeS"]))
 {
-    session_unset();
-    session_destroy();
+    destroySession();
     header("location: ./iniSesion.php");
 }
 //Si existe una sesión activa o se ha creado una cuenta, despliega el contenido de la página
@@ -41,7 +96,6 @@ elseif($sessionIn||(isset($_SESSION["init"])))
     if($sessionIn)
     {
         assignData();
-        header("location: ./Index.php");
     }
     //Con variables de sesión existentes, depliega los contenidos de la página
     if((isset($_SESSION["init"])))
