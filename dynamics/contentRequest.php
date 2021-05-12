@@ -2,7 +2,7 @@
     require_once("./inSessionValidation.php");
     validateSession();
     validatePermissions("all");
-?>
+echo"
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,32 +12,40 @@
     <body>
         <table>
             <tr>
-                <td><img src="../statics/EscudoEnp6.jpg" alt="P6" height="100"></td>
+                <td><img src='../statics/EscudoEnp6.jpg' alt='P6' height='100'></td>
                 <td> <h1>Coyo Lectores</h1></td>
             </tr>
         </table> <hr>
-        <form action="./Index.php">
-            <button type="submit">Regresar</button>
+        <form action='./Index.php'>
+            <button type='submit'>Regresar</button>
         </form>
         <form action='./Index.php'>
-            <fieldset>
+            <fieldset style= 'width:450px'>
                 <legend>Solicitud de integración de nuevo material</legend>
                     <p>Solicitante: &#128100</p>
+            
+
+                    
                     <label for='name'>
-                        Nombre: <input type='text' name='name' placeholder='Nombre(s)'>
+                        Nombre: <input type='text' name='name' value='".$_SESSION["nombre"]."' disabled>
                     </label>
                     <br><br>
                     <label for='apellidoPat'>
-                        Apellido paterno: <input type='text' name='apellidoPat' placeholder='Apellido paterno'>
+                        Apellido paterno: <input type='text' name='apellidoPat' value='".$_SESSION['aPaterno']."' disabled>
                     </label>
                     <br><br>
                     <label for='apellidoMat'>
-                        Apellido Materno: <input type='text' name='apellidoMat' placeholder='Apellido materno'>
+                        Apellido Materno: <input type='text' name='apellidoMat' value='".$_SESSION["aMaterno"]."' disabled>
                     </label>
                     <br><br>
                     <label for='mail'>
-                        Correo institucional: <input type='email' name='mail' placeholder='correo@comunidad.unam.mx'>
+                        Correo institucional: <input type='email' name='mail' value='".$_SESSION["email"]."' disabled>
                     </label>
+                    
+                    <label for='id'>
+                        <input type='hidden' name='id' value='".$_SESSION["identificacion"]."'>
+                    </label>";
+                    ?>
                     <br><br>
                     <p>Material que solicita: &#128218</p>
                     <label for='bookName'>

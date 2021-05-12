@@ -21,7 +21,7 @@
             <button type="submit">Regresar</button>
         </form>
         <h2>Información personal</h2>
-        <fieldset>
+        <fieldset style= 'width:450px'>
             <legend><h3>Datos personales</h3></legend>
             <?php
 
@@ -47,7 +47,7 @@
             echo "<strong>" ."Correo institucional: "."</strong>".$_SESSION['email']."<br>". "<br>";
             echo "<strong>" ."Tipo de cuenta: "."</strong>".$tipoUser."<br>". "<br>";
             echo "<strong>" ."Fecha de nacimiento: "."</strong>".$_SESSION['cumple']."<br>". "<br>";
-            echo "<strong>" ."Contraseña: "."</strong>".$_SESSION['psswd']."<br>". "<br>";
+            //echo "<strong>" ."Contraseña: "."</strong>".$_SESSION['psswd']."<br>". "<br>";
             ?>
             <form action="busqueda.html" method="POST">
             <label for=""><br><br>

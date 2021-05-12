@@ -15,6 +15,8 @@
 
         $_SESSION['init']=true;
         $_SESSION['nombre']=$name;
+        $_SESSION['aPaterno']=$apellP;
+        $_SESSION['aMaterno']=$apellM;
         $_SESSION['apellido']=$apellP." ".$apellM;
         $_SESSION['identificacion']=$id;
         $_SESSION['cumple']=$birth;
@@ -82,14 +84,36 @@ elseif($sessionIn||(isset($_SESSION["init"])))
                     {    
                         echo "<a href='./reports.php'>&#10071 Reportes de contenido </a> <strong>|</strong>";
                         echo "<a href='./form_de_nuevo_contenido.php'>&#9989 Agregar nuevo contenido </a> <strong>|</strong>";
-                        echo "<a href='./form_de_nuevo_contenido.php'>&#128337 Historial de descargas </a> <strong>|</strong>";  
+                        echo "<a href='./codigo.php'>&#128337 Historial de descargas </a> <strong>|</strong>";  
                     }
                     if($_SESSION["tipoUsuario"]==="admon")
                     {
                         echo "<a href='./addOrDelete.php'>&#128101 Manejo de usuarios </a> <strong>|</strong>";
                     }
                     echo "<hr>";
-                    echo "<br>libros
+                    echo "<br>
+                    <table align='center'>
+                        <tbody>
+                            <tr>
+                                <td>Muestra de libros</td>
+                                <td>Muestra de libros</td>
+                                <td>Muestra de libros</td>
+                                <td>Muestra de libros</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Muestra de libros</td>
+                                <td>Muestra de libros</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Muestra de libros</td>
+                                <td>Muestra de libros</td>
+                                <td>Muestra de libros</td>
+                                <td>Muestra de libros</td>    
+                            </tr>
+                        </tbody>
+                    </table>
                     <br>
                     <hr>
                     <p>Equipo de desarrollo: ''</p>
