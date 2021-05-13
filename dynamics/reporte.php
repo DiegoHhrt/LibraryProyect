@@ -19,20 +19,20 @@
         <form action="./Index.php">
             <button type="submit">Regresar</button>
         </form>
-        <form>
+        <form action="./reporte_validacion" method="POST">
             <fieldset style="width:500px">
                 <legend><h2>Reporte de libro</h2></legend>
                 Ingresa el número ISBN del libro: <input type="text" name="id_libro" placeholder='ISBN'>
                 <ul>
                     <li>Contiene material para mayores de 18 años:
                         <ul type="circle">
-                            <li>Describe escenas de violencia que pueden dañar la sensibilidad del lector <input type="checkbox" name="razones[]" value="cont_viol"></li>
-                            <li>Describe escenas con contenido sexual explícito <input type="checkbox" name="razones[]" value="cont_sex"></li>
+                            <li>Describe escenas de violencia que pueden dañar la sensibilidad del lector <input type="checkbox" name="razones[]" value="contenido violento"></li>
+                            <li>Describe escenas con contenido sexual explícito <input type="checkbox" name="razones[]" value="contenido sexual"></li>
                         </ul>
                     </li>
-                    <li>Contiene discurso de odio <input type="checkbox" name="razones[]" value="cont_od"></li>
-                    <li>Difunde desinformación <input type="checkbox" name="razones[]" value="cont_desinf"></li>
-                    <li>Incita a acciones que atentan contra la integridad de una persona o un grupo de ellas <input type="checkbox" name="razones[]" value="cont_inci"></li>
+                    <li>Contiene discurso de odio <input type="checkbox" name="razones[]" value="discurso de odio"></li>
+                    <li>Difunde desinformación <input type="checkbox" name="razones[]" value="difunde desinformación"></li>
+                    <li>Incita a acciones que atentan contra la integridad de una persona o un grupo de ellas <input type="checkbox" name="razones[]" value="inicita a acciones que atentan contra la integridad"></li>
                 </ul>
                 <br><br>
                 <input type="submit" name="reporte" value="Enviar">
