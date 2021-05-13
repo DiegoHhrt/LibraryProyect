@@ -22,7 +22,7 @@
         <form action="./reporte_validacion" method="POST">
             <fieldset style="width:500px">
                 <legend><h2>Reporte de libro</h2></legend>
-                Ingresa el número ISBN del libro: <input type="text" name="id_libro" placeholder='ISBN'>
+                Ingresa el número ISBN del libro: <input type="text" name="id_libro" placeholder='ISBN' required>
                 <ul>
                     <li>Contiene material para mayores de 18 años:
                         <ul type="circle">
