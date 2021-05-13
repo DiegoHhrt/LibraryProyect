@@ -44,11 +44,13 @@
             if($state)
             {
                 header("location: ./Index.php");
+                exit();
             }
             else
             {
                 echo "<h1>Tu registro ha fallado por alguna razón, por favor verfica que tu información sea correcta</h1>";
                 echo "<a href='./accountCreation.php'>Regresar a creación de cuenta</a>";  
+                exit();
             }
         }
         
