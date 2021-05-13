@@ -19,8 +19,9 @@
             <fieldset style="width:350px">
                 <legend><h2>Inicio de sesión</h2></legend>
                 Correo electrónico: <input type="email" name="correo" placeholder="ejemplo@comunidad.unam"><br><br>
-                Contraseña: <input type="password" name="contra"><br><br>
+                Contraseña: <input type="password" name="contra" max_lenght="255"><br><br>
                 <input type="submit" name="ini" value="Entrar">
+                <input type="hidden" name="ini_sesion">
             </fieldset>
         </form>
         ¿No tienes una cuenta? <a href="accountCreation.php">Crea una aquí</a>
