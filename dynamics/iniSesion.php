@@ -18,10 +18,18 @@
         <form action="./Index.php"  method="POST">
             <fieldset style="width:350px">
                 <legend><h2>Inicio de sesión</h2></legend>
-                Correo electrónico: <input type="email" name="correo" placeholder="ejemplo@comunidad.unam"><br><br>
-                Contraseña: <input type="password" name="contra" max_lenght="255"><br><br>
-                <input type="submit" name="ini" value="Entrar">
-                <input type="hidden" name="ini_sesion">
+                <label for="correo">
+                    Correo electrónico: <input type="email" name="correo" placeholder="ejemplo@comunidad.unam"><br><br>
+                </label>
+                <label for="contra">
+                    Contraseña: <input type="password" name="contra" max_lenght="255"><br><br>
+                </label>
+                <label for="ini">
+                    <input type="submit" name="ini" value="Entrar">
+                </label>
+                <label for="ini_sesion">
+                    <input type="hidden" name="ini_sesion">
+                </label>
             </fieldset>
         </form>
         ¿No tienes una cuenta? <a href="accountCreation.php">Crea una aquí</a>

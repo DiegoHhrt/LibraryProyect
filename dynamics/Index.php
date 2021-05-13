@@ -4,6 +4,8 @@
     //registra la info del nuevo usuario en la base de datos
     $rowcount=0;
     $rowcount2=0;
+    $sessionEx=0;
+    $sessionIn=0;
     function dbRegister()
     {
         $con=databaseConection();
@@ -50,6 +52,7 @@
             {
                 echo "<h1>Tu registro ha fallado por alguna razón, por favor verfica que tu información sea correcta</h1>";
                 echo "<a href='./accountCreation.php'>Regresar a creación de cuenta</a>";  
+                destroySession();
                 exit();
             }
         }
@@ -59,32 +62,88 @@
     //Se asigna a todas las variables de sesión un valor proviniente del formulario
     function assignData()
     {
-        $name=(isset($_POST["name"]) && $_POST["name"] != "")? $_POST["name"]:"Inválido";
-        $apellP=(isset($_POST["apellidoPat"]) && $_POST["apellidoPat"] != "")? $_POST["apellidoPat"]:"Inválido";
-        $apellM=(isset($_POST["apellidoMat"]) && $_POST["apellidoMat"] != "")? $_POST["apellidoMat"]:"Inválido";
-        $id=(isset($_POST["identification"]) && $_POST["identification"] != "")? $_POST["identification"]:"Inválido";
-        $birth=(isset($_POST["birth"]) && $_POST["birth"] != "")? $_POST["birth"]:"Inválido";
-        $mail=(isset($_POST["mail"]) && $_POST["mail"] != "")? $_POST["mail"]:"Inválido";
-        $pw=(isset($_POST["psswd"]) && $_POST["psswd"] != "")? $_POST["psswd"]:"Inválido";
-        $fav=(isset($_POST["favorites"]) && $_POST["favorites"] != "")? $_POST["favorites"]:0;
-        $permit=(isset($_POST["permissions"]) && $_POST["permissions"] != "")? $_POST["permissions"]:'lec';
+        if($sessionIn)
+        {
+            $name=(isset($_POST["name"]) && $_POST["name"] != "")? $_POST["name"]:"Inválido";
+            $apellP=(isset($_POST["apellidoPat"]) && $_POST["apellidoPat"] != "")? $_POST["apellidoPat"]:"Inválido";
+            $apellM=(isset($_POST["apellidoMat"]) && $_POST["apellidoMat"] != "")? $_POST["apellidoMat"]:"Inválido";
+            $id=(isset($_POST["identification"]) && $_POST["identification"] != "")? $_POST["identification"]:"Inválido";
+            $birth=(isset($_POST["birth"]) && $_POST["birth"] != "")? $_POST["birth"]:"Inválido";
+            $mail=(isset($_POST["mail"]) && $_POST["mail"] != "")? $_POST["mail"]:"Inválido";
+            $pw=(isset($_POST["psswd"]) && $_POST["psswd"] != "")? $_POST["psswd"]:"Inválido";
+            $fav=(isset($_POST["favorites"]) && $_POST["favorites"] != "")? $_POST["favorites"]:0;
+            $permit=(isset($_POST["permissions"]) && $_POST["permissions"] != "")? $_POST["permissions"]:'lec';
 
-        $_SESSION['init']=true;
-        $_SESSION['nombre']=$name;
-        $_SESSION['aPaterno']=$apellP;
-        $_SESSION['aMaterno']=$apellM;
-        $_SESSION['apellido']=$apellP." ".$apellM;
-        $_SESSION['identificacion']=$id;
-        $_SESSION['cumple']=$birth;
-        $_SESSION['email']=$mail;
-        $_SESSION['psswd']=$pw;
-        $_SESSION['favs']=$fav;
-        $_SESSION['tipoUsuario']=$permit;
+            $_SESSION['init']=true;
+            $_SESSION['full']=$name." ".$apellP." ".$apellM;
+            $_SESSION['nombre']=$name;
+            $_SESSION['aPaterno']=$apellP;
+            $_SESSION['aMaterno']=$apellM;
+            $_SESSION['apellido']=$apellP." ".$apellM;
+            $_SESSION['identificacion']=$id;
+            $_SESSION['cumple']=$birth;
+            $_SESSION['email']=$mail;
+            $_SESSION['psswd']=$pw;
+            $_SESSION['favs']=$fav;
+            $_SESSION['tipoUsuario']=$permit;
 
-        dbRegister();
+            dbRegister();
+        }
+        elseif($sessionEx)
+        {
+            $_SESSION['email']=$mail;
+            $_SESSION['psswd']=$pw;
+            $mail=(isset($_POST["mail"]) && $_POST["mail"] != "")? $_POST["mail"]:"Inválido";
+            $pw=(isset($_POST["psswd"]) && $_POST["psswd"] != "")? $_POST["psswd"]:"Inválido";
+            $cone=databaseConection();
+
+            $checkExistsMail="SELECT Correo FROM usuario WHERE Correo='".$_SESSION['email']."'";
+            $verfyPw="SELECT Psswd FROM usuario WHERE Psswd='".$_SESSION['psswd']."'";
+            if ($r=mysqli_query($con,$checkExistsMail))
+            {
+                $rowcount=mysqli_num_rows($r);
+            }
+            if ($r2=mysqli_query($con,$checkExistsMail))
+            {
+                $rowcount2=mysqli_num_rows($r2);
+            }
+            if($rowcount2>0&&$rowcount>0)
+            {
+                $dataToSession="SELECT * FROM usuario WHERE Correo='".$_SESSION['email']."'";
+                $r=mysqli_query($con,$dataToSession);
+                $count=mysqli_fetch_array($r, MYSQLI_NUM);
+                
+                $_SESSION['init']=true;
+                $_SESSION['nombre']=$count["Nombre"];
+                $_SESSION['identificacion']=$count["Id_usuario"];
+                $_SESSION['cumple']=$count["Nacimiento"];
+                $_SESSION['favs']=0;
+
+                if($count["Tipo"]=="Lector")
+                {
+                    $_SESSION['tipoUsuario']='lec';
+                }
+                elseif($count["Tipo"]=="Bibliotecario")
+                {
+                    $_SESSION['tipoUsuario']='bibl';
+                }
+                elseif($count["Tipo"]=="Admin")
+                {
+                    $_SESSION['tipoUsuario']='admon';
+                }
+            }
+            else
+            {
+                echo "<h1>Tu registro ha fallado por alguna razón, por favor verfica que tu información sea correcta</h1>";
+                echo "<a href='./accountCreation.php'>Regresar a creación de cuenta</a>";  
+                exit();
+                destroySession();
+            }
+        }
     }
     
     $sessionIn=(isset ($_POST["registred"]) && $_POST["registred"] !="") ?$_POST["registred"]: false;
+    $sessionEx=(isset ($_POST["ini_sesion"]) && $_POST["ini_sesion"] !="") ?$_POST["ini_sesion"]: false;
 //En caso de haber cerrado sesión, redirige a la creación de una cuenta
 if(isset($_POST["closeS"]))
 {
@@ -94,8 +153,8 @@ if(isset($_POST["closeS"]))
 //Si existe una sesión activa o se ha creado una cuenta, despliega el contenido de la página
 elseif($sessionIn||(isset($_SESSION["init"])))
 {
-    //En caso de haberse recién creado una sesión, asigna los valores de las solicitudes http a variables de sesión y redirige a la misma imágen ya con los valores en variables de sesión
-    if($sessionIn)
+    //En caso de haberse recién creado una sesión o iniciado una existente, asigna los valores de las solicitudes http a variables de sesión y redirige a la misma imágen ya con los valores en variables de sesión
+    if($sessionIn||$sessionEx)
     {
         assignData();
     }
