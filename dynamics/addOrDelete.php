@@ -46,7 +46,7 @@
             </form>
             <h2>Gestión de usuarios de la biblioteca</h2>
             <hr>";
-                $countId="SELECT COUNT(Id_usuario) FROM Usuario";
+                $countId="SELECT COUNT(Id_usuario) FROM usuario";
                 $r=mysqli_query($con,$countId);
                 $count=mysqli_fetch_array($r, MYSQLI_NUM);
 

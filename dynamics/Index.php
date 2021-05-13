@@ -7,8 +7,8 @@
     function dbRegister()
     {
         $con=databaseConection();
-        $checkExistsId="SELECT Id_usuario FROM Usuario WHERE Id_usuario=".$_SESSION["identificacion"]."";    
-        $checkExistsMail="SELECT Correo FROM Usuario WHERE Correo='".$_SESSION['email']."'";
+        $checkExistsId="SELECT Id_usuario FROM usuario WHERE Id_usuario=".$_SESSION["identificacion"]."";    
+        $checkExistsMail="SELECT Correo FROM usuario WHERE Correo='".$_SESSION['email']."'";
         
         if ($r=mysqli_query($con,$checkExistsId))
         {
@@ -38,7 +38,7 @@
             {
                 $tUser="Admin";
             }
-            $insertUser="INSERT INTO Usuario (Id_Usuario, Tipo, Nombre, Nacimiento, Correo, Psswd) VALUES ('".$_SESSION['identificacion']."', '".$tUser."', '".$_SESSION['nombre']." ".$_SESSION['apellido']."','".$_SESSION['cumple']."','".$_SESSION['email']."','".$_SESSION['psswd']."')";
+            $insertUser="INSERT INTO usuario (Id_Usuario, Tipo, Nombre, Nacimiento, Correo, Psswd) VALUES ('".$_SESSION['identificacion']."', '".$tUser."', '".$_SESSION['nombre']." ".$_SESSION['apellido']."','".$_SESSION['cumple']."','".$_SESSION['email']."','".$_SESSION['psswd']."')";
             
             $state=mysqli_query($con, $insertUser);
             if($state)

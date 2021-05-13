@@ -13,7 +13,7 @@ echo "
     </head>
     <body>";
         $con=dataBaseConection();
-        $usersToShow='SELECT Id_usuario FROM Usuario';
+        $usersToShow='SELECT Id_usuario FROM usuario';
         $preUsers=mysqli_query($con, $usersToShow);
         $m=0;
         while($fullUsers=mysqli_fetch_array($preUsers, MYSQLI_ASSOC))
@@ -26,7 +26,7 @@ echo "
             $m++;
         }
         $selectedUser=$select['Id_usuario'];
-        $dataRequest="SELECT * FROM Usuario WHERE Id_usuario='".$selectedUser."'";
+        $dataRequest="SELECT * FROM usuario WHERE Id_usuario='".$selectedUser."'";
 
         $preSelecUser=mysqli_query($con, $dataRequest);
         $fullSelecUser=mysqli_fetch_array($preSelecUser, MYSQLI_ASSOC);
