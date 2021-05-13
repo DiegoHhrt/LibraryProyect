@@ -23,17 +23,10 @@
             <tbody>
                 <form action="./libro.php">
                 <tr>
-                    <td colspan=2>
-                        <label for="search">
-                            <input type="text" name="search" placeholder='busqueda' required>
-                        </label>
-                    </td>
-                </tr>
-                <tr>
                     <td colspan=2>Filtrar por:</td>
                 </tr>
                 <tr>
-                    <label for="filter">
+                    <label for="filter" required>
                         <td>
                             Categoría <input type="checkbox" name="filter[]" value=''>
                             Año <input type="checkbox" name="filter[]" value=''>

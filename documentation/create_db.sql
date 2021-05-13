@@ -63,5 +63,18 @@ CREATE TABLE Reporte(
 );
 CREATE TABLE Solicitud(
 	Id_solicitud INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-	Titulo 
+	Id_usuario VARCHAR(14) NOT NULL,
+	Titulo VARCHAR(100) NOT NULL,
+	Editorial VARCHAR(40) NOT NULL, 
+	year YEAR NOT NULL,
+	Edicion INT UNSIGNED,
+	Autor VARCHAR(50) NOT NULL, 
+	FOREIGN KEY (Id_Usuario) REFERENCES Usuario(Id_usuario)
+);
+CREATE TABLE Descarga(
+    Id_descarga INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    Id_libro BIGINT UNSIGNED,
+	Id_Usuario VARCHAR(14),
+	FOREIGN KEY (Id_libro) REFERENCES Libro(Isbn),
+	FOREIGN KEY (Id_Usuario) REFERENCES Usuario(Id_usuario)
 );
