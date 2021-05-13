@@ -1,6 +1,13 @@
 <?php
+  $conexion=mysqli_connect('localhost', 'root', '', 'Biblioteca');
   require_once("./inSessionValidation.php");
   validateSession();
+
+  $datos="SELECT * FROM libro";
+  $result = mysqli_query($conexion, $datos);
+
+  while($mostrar=mysqli_fetch_array($result)){
+    
 ?>
 
 <!DOCTYPE html>
@@ -27,17 +34,17 @@
   <tbody>
     <tr>
       <td rowspan="3"><img src="https://imagessl4.casadellibro.com/a/l/t7/94/9788478887194.jpg" width="400" height="600" alt="Imagen de prueba"></td>
-      <td><strong>Titulo:</strong> El principito</td>
+      <td><strong>Titulo:</strong><?php echo $mostrar['Titulo'];?></td>
     </tr>
     <tr>
-      <td><strong>ID del libro:</strong> Salamandra</td>
+      <td><strong><?php echo $mostrar['Isbn'] . "<br>"; echo $mostar['id_autor'] . "<br>"; echo $mostrar['id_editorial']; ?></strong> </td>
     </tr>
     <tr>
-      <td><strong>Datos extra:</strong> Lo que sea</td>
+      <td><strong><?php echo $mostrar['Descripcion'] . "<br>"; echo $mostrar['Edicion'] . "<br>"; }?></strong></td>
     </tr>
   </tbody>
 </table>
-<form action="">
+<form action="./Index.php">
   <label for=""><br><br>
     <input type="submit" value="Regresar">
   </label>
