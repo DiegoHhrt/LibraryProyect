@@ -61,3 +61,7 @@ CREATE TABLE Reporte(
 	FOREIGN KEY (Id_libro) REFERENCES Libro(Isbn),
 	FOREIGN KEY (Id_Usuario) REFERENCES Usuario(Id_usuario)
 );
+CREATE TABLE Solicitud(
+	Id_solicitud INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	Titulo 
+);
