@@ -4,6 +4,8 @@
     validatePermissions("all");
     //Guarda razones del reporte (en caso de haberlo, en caso contrario redirige a la página de reporte)
     $rep = isset($_POST["razones"])?$_POST["razones"]:NULL;
+    $isbn = $_POST["id_libro"];
+    $isbn = intval($isbn);
     if(isset($rep))
     {
         //Envia datos concatenados en una sola cadena y los guarda en la base de datos
@@ -17,7 +19,7 @@
         else
             $conc = $rep;
         //Agregar id_usuario y id_libro 
-        $incl = "INSERT INTO reporte (Id_Usuario,Motivo) VALUES ($usuario,$conc)";
+        $incl = 'INSERT INTO reporte (Id_libro,Id_Usuario,Motivo) VALUES ('.$isbn.',"'.$usuario.'","'.$conc.'")';
         $quer = mysqli_query($con, $incl);
         if($quer)
             echo "<h1>Reporte enviado exitosamente</h1>";
