@@ -9,14 +9,15 @@
         //Envia datos concatenados en una sola cadena y los guarda en la base de datos
         include "config.php";
         $con = dataBaseConection();
-        if(count($con) > 1)
+        $usuario = $_SESSION["identificacion"]
+        if(count($rep) > 1)
         {
             $conc = implode(" ,", $rep);
         }
         else
             $conc = $rep;
         //Agregar id_usuario y id_libro 
-        $incl = "INSERT INTO reporte (Motivo) VALUES ($conc)";
+        $incl = "INSERT INTO reporte (Id_Usuario,Motivo) VALUES ($usuario,$conc)";
         $quer = mysqli_query($con, $incl);
         if($quer)
             echo "<h1>Reporte enviado exitosamente</h1>";
