@@ -1,0 +1,43 @@
+# Observaciones
+
+- **Inicio de sesión**
+  - No se puede iniciar sesión con una cuenta a menos que justo haya sido creada.
+  - No muestra errores de inicio de sesión en caso de meter datos erroneos.
+- **Vista para crear una cuenta**
+  - Cualquier persona puede registrarse como administrador
+- **Página de inicio**
+  - No hay lista de personas en el equipo de Kiki's Library
+  - No posee información sobre el programa
+  - Aparece la frase "Muestra de libros" repetida 10 veces.
+- **Búsqueda**
+  - No hay buscador, es decir, no hay un campo de texto que permita escribir
+  - Se pueden elegir todos los criterios de búsqueda al mismo tiempo
+- **Resultados de búsqueda**
+  - Solo es desplegada la información de el libro de El Principito, pero esta predeterminada en el maquetado de la página, y no es llamado desde la base de datos.
+- **Información del libro**
+  - No existe forma de meter libros en el sistema (excepto realizarlo de manera manual en MariaDB), por lo que no se puede acceder a la información de los libros.
+- **Libros favoritos**
+  - No existe forma de meter libros en el sistema (excepto realizarlo de manera manual en MariaDB), por lo que no se puede marcar ningun libro como favorito ni visualizar favoritos en alguna página especial.
+- **Solicitud de nuevos recursos**
+  - El año del formulario permite insertar cadenas y valores que no sean ningun tipo de año.
+- **Reporte**
+  - El formulario en el archivo `reporte.php` no es enviado a ninguna otra página.
+  - Dado que nunca se envian reportes a la base de datos, no pueden ser llamados ni evaluados por algun administrador.
+- **Datos de usuario**
+  - Los botones de actualización de datos y de eliminación de cuenta no sirven
+- **Subida de nuevos libros**
+  - No puede subirse un nuevo libro sin previsualización
+  - Llenar el formulario y enviarlo regresa una cantidad infinita de errores
+  - En `vista_de_registro.php` nunca se accede a la base de datos.
+  - El formulario es enviado aún si se sube un archivo que no sea pdf.
+- **Historial de descargas**
+  - El archivo `codigo.php` incluye dos tablas para hacer una sola tabla, y nunca accede a la base de datos.
+- **Específicos de administrador**
+  - Un admin nuevo puede borrar a un admin viejo; no hay "admin supremo".
+  - Los administradores no pueden agregar nuevos usuarios.
+  - NOTA. En cuanto a la gestiíon de usuarios, estos son desplegados de manera poco convencional como botones con el formato "Usuario #", en vez de una tabla que resulta mucho más amigable.
+- **General** 
+  - Varios archivos poseen pocos o carecen en su totalidad de comentarios.
+  - Varios archivos se encuentran mal identados.
+  - No existen varios mensajes de confirmación o de error en cuanto a los envíos de los formularios.
+  - A la instalación del proyecto en el README le faltan pasos para poder estar correcta.
